@@ -1,0 +1,33 @@
+{
+  "menu": [
+    
+   
+    {
+      "url": "index",
+      "name": "Appname",
+      "i18n": "Appname",
+      "slug": "Appname",
+      "id":"#ico",
+      "icon": "trophy",
+      "dropdown": "1",
+      "submenu": [
+        {
+          "url": "/",
+          "name": "Vote",
+          "i18n": "Vote",
+          "icon": "balance",
+          "slug": "Vote"
+        },
+        {
+          "url": "stats",
+          "name": "Ranking",
+          "i18n": "Ranking",
+          "icon": "trophy",
+          "slug": "Ranking"
+        }
+      ]
+    }
+
+    
+  ]
+}

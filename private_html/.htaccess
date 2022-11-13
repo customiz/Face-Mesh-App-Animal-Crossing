@@ -1,0 +1,34 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+ 
+## Automated HTTP libraries
+RewriteCond %{HTTP_USER_AGENT} ^.*(dav.pm/v|libwww-perl|urllib|python-requests|python-httplib2|winhttp.winhttprequest|lwp-request|lwp-trivial|fasthttp|Go-http-client|Java|httplib|httpclient|Zend_Http_Client).*$ [NC]
+RewriteRule .* - [F,L]
+ 
+## Commonly seen in DDoS attacks
+RewriteCond %{HTTP_USER_AGENT} ^.*(CtrlFunc|w00tw00t|Apachebench).*$ [NC]
+RewriteRule .* - [F,L]
+</IfModule>
